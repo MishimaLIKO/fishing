@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.4">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Menlo; color: #232526; -webkit-text-stroke: #232526; background-color: #f4f5f7}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Menlo; color: #232526; -webkit-text-stroke: #232526; background-color: #f4f5f7; min-height: 15.0px}
+    span.s1 {font-kerning: none}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html lang="zh"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;釣魚點擊遊戲&lt;/title&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;style&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>body { text-align: center; font-family: Arial, sans-serif; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>#bar-container {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: relative;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 600px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 50px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border: 5px solid gray;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: #eee;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 50px auto;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>overflow: hidden;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.zone {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: absolute;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 100%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.good { background: green; width: 60px; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.bad { background: red; width: 80px; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>#pointer {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: absolute;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>left: 300px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>top: -10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 5px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 70px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: black;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;body&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;h1&gt;釣魚點擊遊戲&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1">&lt;p&gt;點擊空白鍵 (Space) 當指針在綠色區域時!&lt;/p&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;div id="bar-container"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div id="good-zone" class="zone good"&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div id="bad-zone" class="zone bad"&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div id="pointer"&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;p id="score"&gt;分數: 0&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1">&lt;p id="timer"&gt;剩餘時間: 30 秒&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1">&lt;p id="gameOverMessage" style="color: red; font-size: 20px;"&gt;&lt;/p&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let score = 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let timeLeft = 30;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let gameOver = false;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let goodZone = document.getElementById("good-zone");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let badZone = document.getElementById("bad-zone");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let pointer = document.getElementById("pointer");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let scoreText = document.getElementById("score");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let timerText = document.getElementById("timer");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let gameOverMessage = document.getElementById("gameOverMessage");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let pointerX = 300;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let speed = 2;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let direction = 1;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let animationFrame;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function resetZones() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>let goodStart = Math.random() * 440;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>let badStart = goodStart + 60 + Math.random() * 40;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (badStart + 80 &gt; 600) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>badStart = 600 - 80;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>goodZone.style.left = goodStart + "px";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>badZone.style.left = badStart + "px";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function updatePointer() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (!gameOver) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>pointerX += speed * direction;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (pointerX &gt;= 600 || pointerX &lt;= 0) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>direction *= -1;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>pointer.style.left = pointerX + "px";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>animationFrame = requestAnimationFrame(updatePointer);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function updateTimer() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (timeLeft &gt; 0) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>timeLeft--;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>timerText.innerText = "剩餘時間: " + timeLeft + " 秒";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>endGame();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function endGame() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>gameOver = true;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>cancelAnimationFrame(animationFrame);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>gameOverMessage.innerText = "遊戲結束！最終分數：" + score;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.addEventListener("keydown", function(event) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (event.code === "Space" &amp;&amp; !gameOver) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let pointerPos = pointer.offsetLeft;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let goodStart = goodZone.offsetLeft;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let goodEnd = goodStart + 60;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let badStart = badZone.offsetLeft;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let badEnd = badStart + 80;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (pointerPos &gt;= goodStart &amp;&amp; pointerPos &lt;= goodEnd) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>score += 10;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>} else if (pointerPos &gt;= badStart &amp;&amp; pointerPos &lt;= badEnd) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>score -= 5;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>score -= 2;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>scoreText.innerText = "分數: " + score;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>resetZones();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>});</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>resetZones();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>updatePointer();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let countdown = setInterval(updateTimer, 1000);</span></p>
+<p class="p1"><span class="s1">&lt;/script&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+</body>
+</html>
